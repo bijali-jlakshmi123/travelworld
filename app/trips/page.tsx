@@ -77,7 +77,7 @@ export default async function TripsPage() {
         {/* Stats Row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
+            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
               <Plane className="w-6 h-6" />
             </div>
             <div>
@@ -88,7 +88,7 @@ export default async function TripsPage() {
             </div>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+            <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
               <Calendar className="w-6 h-6" />
             </div>
             <div>
@@ -99,7 +99,7 @@ export default async function TripsPage() {
             </div>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-            <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 flex-shrink-0">
+            <div className="w-12 h-12 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
               <Globe className="w-6 h-6" />
             </div>
             <div>
@@ -141,7 +141,7 @@ export default async function TripsPage() {
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 block">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {sortedTrips.map((trip) => {
                 const tripStartDate = new Date(trip.startDate);
                 const isPast = tripStartDate < today;
@@ -163,7 +163,7 @@ export default async function TripsPage() {
                               alt={trip.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-gray-900/10 to-transparent"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-gray-900/60 via-gray-900/10 to-transparent"></div>
                           </>
                         ) : (
                           <div className="w-full h-full bg-linear-to-br from-blue-400 to-indigo-600 group-hover:scale-105 transition-transform duration-500 relative">
@@ -188,7 +188,7 @@ export default async function TripsPage() {
                         </div>
 
                         {/* Title positioned over image */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4 z-10 bg-gradient-to-t from-black/80 to-transparent">
+                        <div className="absolute bottom-0 left-0 right-0 p-4 z-10 bg-linear-to-t from-black/80 to-transparent">
                           <h3 className="text-xl font-bold text-white line-clamp-1">
                             {trip.title}
                           </h3>
@@ -227,7 +227,7 @@ export default async function TripsPage() {
                           </div>
 
                           {trip.notes && (
-                            <div className="mt-4 break-words">
+                            <div className="mt-4 wrap-break-word">
                               <p className="text-sm text-gray-500 line-clamp-2">
                                 {trip.notes}
                               </p>
