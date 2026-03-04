@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import {
-  User,
+  Users,
   ShieldBan,
   Trash2,
   ShieldCheck,
