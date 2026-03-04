@@ -12,11 +12,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, user }) {
+    async session({ session, user }: { session: any; user: any }) {
       if (session.user) {
         session.user.id = user.id;
-        session.user.role = (user as any).role;
-        session.user.isBlocked = (user as any).isBlocked;
+        session.user.role = user.role;
+        session.user.isBlocked = user.isBlocked;
 
         // Auto-promote admin email if it's not already set in DB manually
         if (
