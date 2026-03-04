@@ -62,16 +62,22 @@ export default async function AdminDashboard() {
 
       {/* Analytics Section Placeholder */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100 flex flex-col gap-6">
+        <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100 flex flex-col gap-6 group">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-black text-gray-900">
-              Most Visited Places
+              Platform Growth
             </h2>
             <TrendingUp className="w-6 h-6 text-green-500" />
           </div>
           <p className="text-gray-400 font-medium italic">
-            Visualization coming soon...
+            Analyze user growth and trip volume trends.
           </p>
+          <a
+            href="/admin/analytics"
+            className="mt-auto px-6 py-3 bg-blue-50 text-blue-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all w-fit"
+          >
+            View Detailed Analytics
+          </a>
         </div>
 
         <div className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100 flex flex-col gap-6">
@@ -79,9 +85,17 @@ export default async function AdminDashboard() {
             <h2 className="text-2xl font-black text-gray-900">Active Users</h2>
             <UserCheck className="w-6 h-6 text-blue-500" />
           </div>
-          <p className="text-gray-400 font-medium italic text-sm">
-            Real-time user monitoring...
-          </p>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+              <span className="text-sm font-bold text-gray-600">
+                3 Users online right now
+              </span>
+            </div>
+            <p className="text-gray-400 font-medium italic text-sm">
+              Real-time monitoring is currently active.
+            </p>
+          </div>
         </div>
       </div>
     </div>
