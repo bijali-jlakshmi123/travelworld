@@ -29,6 +29,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col justify-between`}
+        suppressHydrationWarning
       >
         <div className="flex-1">
           <Navbar />

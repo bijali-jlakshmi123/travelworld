@@ -35,6 +35,16 @@ export default async function Navbar() {
               Globe Trotter
             </Link>
 
+            {(session?.user as any)?.role === "ADMIN" && (
+              <Link
+                href="/admin"
+                className="text-purple-600 hover:text-purple-800 font-bold transition px-3 py-1 bg-purple-50 rounded-lg flex items-center gap-1"
+              >
+                <Compass className="w-4 h-4" />
+                Admin
+              </Link>
+            )}
+
             {/* Login / Logout Button */}
             <AuthButton
               isLoggedIn={isLoggedIn}

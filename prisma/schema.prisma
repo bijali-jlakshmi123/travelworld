@@ -17,6 +17,8 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  role          Role      @default(USER)
+  isBlocked     Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -24,6 +26,22 @@ model User {
   sessions Session[]
   trips    Trip[]
   locations Location[]
+  reports   Report[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Report {
+  id        String   @id @default(cuid())
+  type      String   // "location", "spam", "incorrect_data"
+  content   String   @db.Text
+  status    String   @default("PENDING") // PENDING, RESOLVED
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
 }
 
 model Account {
@@ -73,6 +91,7 @@ model Trip {
   notes       String?  @db.Text
   imageUrl    String?
   userId      String
+  isApproved  Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -90,6 +109,7 @@ model Location {
   lat         Float?
   lng         Float?
   userId      String
+  isApproved  Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
