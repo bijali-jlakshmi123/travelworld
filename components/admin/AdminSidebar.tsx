@@ -72,17 +72,6 @@ export default function AdminSidebar() {
             );
           })}
         </nav>
-
-        {/* Footer */}
-        <div className="p-4 border-t border-gray-100 bg-gray-50/50">
-          <Link
-            href="/"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-gray-100 hover:text-red-600 transition-all font-semibold text-sm"
-          >
-            <LogOut className="w-5 h-5" />
-            Exit Admin
-          </Link>
-        </div>
       </div>
     </aside>
   );
